@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TimeTracker.ViewModels"
+             x:Class="TimeTracker.Pages.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Spacing="20"
+                 Padding="20">
+
+        <Entry Text="{Binding Email}"
+               Placeholder="email"/>
+        <Entry Text="{Binding Password}"
+               Placeholder="password"
+               IsPassword="True"/>
+        <Entry Text="{Binding UserFirstName}"
+               Placeholder="user first name"/>
+        <Entry Text="{Binding UserLastName}"
+               Placeholder="user last name"/>
+
+        <Button Command="{Binding RegisterCommand}"
+                Text="Register"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepSkyBlue"              
+               />
+
+        <Label Text="{Binding Message}" TextColor="Red"/>
+
+        <Button Text="Go back to Login Page"
+                Clicked="Button_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

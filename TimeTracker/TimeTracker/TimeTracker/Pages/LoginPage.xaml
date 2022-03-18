@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TimeTracker.ViewModels"
+             x:Class="TimeTracker.Pages.LoginPage"
+             Title="Time Tracker">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Spacing="20"
+                 Padding="20">
+
+        <Entry Text="{Binding Login}"
+               Placeholder="Your Email adress as Login"/>
+
+        <Entry Text="{Binding Password}"
+               IsPassword="True"
+               Placeholder="Your Password"/>
+
+        <Button Command="{Binding LoginCommand}"
+                CommandParameter="{Binding access_code}"
+                Text="Login"
+                />
+
+        <Button Text="Have no account? SIGN UP NOW"
+                Clicked="Button_Clicked"/>
+
+        <Label Text="{Binding Message}" TextColor="Red"/>
+
+    </StackLayout>
+
+</ContentPage>
