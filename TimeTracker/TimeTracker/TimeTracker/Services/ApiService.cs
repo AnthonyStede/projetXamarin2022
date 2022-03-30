@@ -48,11 +48,12 @@ namespace TimeTracker.Services
         public async Task<ResponseBody> RegisterAsync(string email, string password, string userFirstName, string userLastName)
         {
             var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
 
             var model = new CreateUserRequest
             {
                 ClientId = "MOBILE",
-                ClientSecret = "UNIV",
+                ClientSecret = "COURS",
                 Email = email,
                 Password = password,
                 FirstName = userFirstName,
@@ -65,7 +66,7 @@ namespace TimeTracker.Services
 
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("https://timetracker.julienmialon.ovh/api/v1/register", content);
+            var response = await client.PostAsync(Urls.REGISTER, content);
 
             string jsonResponse = await response.Content.ReadAsStringAsync();
 
@@ -78,13 +79,14 @@ namespace TimeTracker.Services
         {
 
             var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
 
             var LoginModel = new LoginWithCredentialsRequest
             {
                 Login = login,
                 Password = password,
                 ClientId = "MOBILE",
-                ClientSecret = "UNIV"
+                ClientSecret = "COURS"
             };
             var json = JsonConvert.SerializeObject(LoginModel);
 
@@ -92,7 +94,7 @@ namespace TimeTracker.Services
 
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("https://timetracker.julienmialon.ovh/api/v1/authentication/credentials", content);
+            var response = await client.PostAsync(Urls.LOGIN, content);
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
 
@@ -106,10 +108,11 @@ namespace TimeTracker.Services
         public async Task<Response<UserProfileResponse>> UserProfilAsync(String AccessToken)
         {
             var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
 
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
 
-            var response = await client.GetAsync("https://timetracker.julienmialon.ovh/api/v1/me");
+            var response = await client.GetAsync(Urls.USER_PROFILE);
 
             string content = await response.Content.ReadAsStringAsync();
 
