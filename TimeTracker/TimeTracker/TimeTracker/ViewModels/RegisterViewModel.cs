@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using TimeTracker.Services;
+using TimeTracker.ThrowException;
 using Xamarin.Forms;
 
 namespace TimeTracker.ViewModels
@@ -36,21 +37,34 @@ namespace TimeTracker.ViewModels
                 return new Command(async () =>
                 {
 
-                    var isSuccess = await _apiService.RegisterAsync(Email, Password, UserFirstName, UserLastName);
 
-                    if (isSuccess.IsSuccess)
+                    try
                     {
-                        Message = "Register successfully";
+                        if (UserFirstName.Length > 0 && UserLastName.Length > 0 && Email.Length > 0 && Password.Length > 0)
+                        {
+                            var isSuccess = await _apiService.RegisterAsync(Email, Password, UserFirstName, UserLastName);
+                            if (isSuccess.IsSuccess)
+                            {
+                                Message = "Register successfully";
+                                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
+                            }
+                            else
+                            {
+                                Message = "Register failed, Retry please";
+                                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
+                            }
+                        }
+                        else
+                        {
+                            Message = "Please fill all fields";
+                            OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
+                        }
+                    }
+                    catch (MailAlreadyExistException e)
+                    {
+                        Message = "Mail already registered";
                         OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
                     }
-
-
-                    else
-                    {
-                        Message = "Register failed, Retry please";
-                        OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
-                    }
-
                 });
             }
 

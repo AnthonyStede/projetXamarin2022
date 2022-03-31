@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using TimeTracker.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace TimeTracker.Pages
@@ -9,6 +10,7 @@ namespace TimeTracker.Pages
         public ProfilPage()
         {
             InitializeComponent();
+            BindingContext = new ProfilViewModel();
         }
     }
 }

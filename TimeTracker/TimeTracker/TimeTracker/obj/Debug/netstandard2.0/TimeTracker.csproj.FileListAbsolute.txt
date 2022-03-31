@@ -16,3 +16,4 @@ C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netst
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\Pages\ProfilPage.xaml.g.cs
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\Pages\ProjectListPage.xaml.g.cs
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\Pages\RegisterPage.xaml.g.cs
+C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\Pages\MenuPage.xaml.g.cs

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using TimeTracker.Pages;
 using TimeTracker.Services;
+using TimeTracker.ThrowException;
 using Xamarin.Forms;
 
 namespace TimeTracker.ViewModels
@@ -16,9 +18,19 @@ namespace TimeTracker.ViewModels
         public string Email { get; set; }
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
+        public bool Visible { get; set; }
         public string Message { get; set; }
         public string AccessToken { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            var eventHandler = PropertyChanged;
+            eventHandler?.Invoke(this, e);
+
+        }
         public ICommand UserProfilCommand
         {
             get
@@ -26,23 +38,84 @@ namespace TimeTracker.ViewModels
                 return new Command(async () =>
                 {
                     var accessToken = AccessToken;
-                    var isSuccess = await _apiService.UserProfilAsync(accessToken);
 
-                    if (isSuccess.IsSuccess)
+
+                    try
                     {
-                        Email = "Your email is: " + isSuccess.Data.Email;
-                        UserFirstName = "Your First name is: " + isSuccess.Data.FirstName;
-                        UserLastName = "Your Last name is: " + isSuccess.Data.LastName;
-                        await Application.Current.MainPage.Navigation.PushAsync(new ProfilPage());
+                        var isSuccess = await _apiService.UserProfilAsync(accessToken);
+                        if (isSuccess.IsSuccess)
+                        {
+                            Email = isSuccess.Data.Email;
+                            UserFirstName = isSuccess.Data.FirstName;
+                            UserLastName = isSuccess.Data.LastName;
+                            await Application.Current.MainPage.Navigation.PushAsync(new ProfilPage());
+                        }
+                        else
+                        {
+                            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                        }
                     }
-                    else
+                    catch (WrongAccessTokenException e)
                     {
-                        await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                        Console.WriteLine(e);
                     }
+
                 });
 
             }
 
+        }
+        public ICommand ChangeInfosCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    try
+                    {
+                        await _apiService.ChangeProfilAsync(AccessToken, Email, UserFirstName, UserLastName);
+                        await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
+                    }
+                    catch (WrongAccessTokenException e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                });
+            }
+
+        }
+        public ICommand ChangePasswordCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    try
+                    {
+                        await _apiService.ChangePasswordAsync(AccessToken, OldPassword, NewPassword);
+                        await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
+                    }
+                    catch (WrongOldPasswordException e)
+                    {
+                        Message = "Wrong old password";
+                        OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
+                        Console.WriteLine(e);
+                    }
+                });
+            }
+
+        }
+        public ICommand ChangePasswordDisplay
+        {
+            get
+            {
+                return new Command(Visibilite);
+                    
+            }
+        }
+        public void Visibilite()
+        {
+            Visible = !Visible;
         }
     }
 }

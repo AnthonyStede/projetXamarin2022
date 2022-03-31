@@ -2,21 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:TimeTracker.ViewModels"
+             xmlns:converters="clr-namespace:TimeTracker.Converters"
              x:Class="TimeTracker.Pages.ProfilPage">
     <ContentPage.BindingContext>
         <vm:ProfilViewModel/>
     </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout Orientation="Vertical"
                  VerticalOptions="Center"
                  Spacing="20"
                  Padding="20">
 
-        <Label Text="{Binding Email}" TextColor="Red"/>
-
-        <Label Text="{Binding UserFirstName}" TextColor="Red"/>
-
-        <Label Text="{Binding UserLastName}" TextColor="Red"/>
+        <Label Text="Your email is: "/>
+        <Entry Text="{Binding Email}" StyleClass="DefaultEntry" Placeholder="Email"/>
+        <Label Text="Your First name is: "/>
+        <Entry Text="{Binding UserFirstName}" Placeholder="First name"/>
+        <Label Text="Your Last name is: "/>
+        <Entry Text="{Binding UserLastName}" Placeholder="Last name"/>
+        <Button Text="Accept" Command="{Binding ChangeInfosCommand}" StyleClass="DefaultButton"/>
+        <Button Text="Change password" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible, Converter={StaticResource inverter}}" StyleClass="DefaultButton"/>
+        <Button Text="Back" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible}" StyleClass="DefaultButton"/>
+        <Label Text="Old password"/>
+        <Entry WidthRequest="300" IsVisible="{Binding Visible}" IsPassword="True" StyleClass="DefaultEntry" Text="{Binding OldPassword}"/>
+        <Label Text="New password"/>
+        <Entry WidthRequest="300" IsVisible="{Binding Visible}" IsPassword="True" StyleClass="DefaultEntry" Text="{Binding NewPassword}"/>
+        <Label Text="{Binding Message}" TextColor="Red"/>
+        <Button Text="Confirm password" Command="{Binding ChangePasswordCommand}" IsVisible="{Binding Visible}" StyleClass="DefaultButton"/>
 
     </StackLayout>
 </ContentPage>

@@ -112,12 +112,57 @@ namespace TimeTracker.Services
 
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
 
-            var response = await client.GetAsync(Urls.USER_PROFILE);
+            var response = await client.GetAsync(Urls.USER_PROFIL);
 
             string content = await response.Content.ReadAsStringAsync();
 
             return JsonConvert.DeserializeObject<Response<UserProfileResponse>>(content);
 
+        }
+        public async Task<Response<UserProfileResponse>> ChangeProfilAsync(string Accesstoken, string email, string userFirstName, string userLastName)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Accesstoken);
+
+            var ProfilModel = new UserProfileResponse()
+            {
+                Email = email,
+                FirstName = userFirstName,
+                LastName = userLastName
+            };
+
+            var json = JsonConvert.SerializeObject(ProfilModel);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage response = await client.PostAsync(Urls.USER_PROFIL, content); // à changer par des patch
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<Response<UserProfileResponse>>(responseBody);
+        }
+        public async Task<Response<UserProfileResponse>> ChangePasswordAsync(string Accesstoken, string oldPassword, string newPassword)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Accesstoken);
+
+            var ProfilModel = new SetPasswordRequest()
+            {
+                OldPassword = oldPassword,
+                NewPassword = newPassword,
+            };
+
+            var json = JsonConvert.SerializeObject(ProfilModel);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage response = await client.PostAsync(Urls.SET_PASSWORD, content); // à changer par des patch
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<Response<UserProfileResponse>>(responseBody);
         }
     }
 }

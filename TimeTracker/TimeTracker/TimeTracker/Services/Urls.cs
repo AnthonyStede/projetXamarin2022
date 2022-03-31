@@ -7,6 +7,7 @@
 
         public const string REGISTER = ROOT + "/register";
         public const string LOGIN = ROOT + "/login";
-        public const string USER_PROFILE = ROOT + "/me";
+        public const string USER_PROFIL = ROOT + "/me";
+        public const string SET_PASSWORD = ROOT + "/password";
     }
 }

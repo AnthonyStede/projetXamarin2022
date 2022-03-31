@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TimeTracker.ViewModels"
+             x:Class="TimeTracker.Pages.MenuPage">
+    <ContentPage.BindingContext>
+        <vm:MenuViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Spacing="20"
+                 Padding="20">
+
+        <Button Command="{Binding GoToProfilCommand}"
+                CommandParameter="{Binding access_code}"
+                Text="Profil"
+                />
+
+        <Button Command="{Binding GoToProjectCommand}"
+                CommandParameter="{Binding access_code}"
+                Text="Project list"
+                />
+
+    </StackLayout>
+</ContentPage>
