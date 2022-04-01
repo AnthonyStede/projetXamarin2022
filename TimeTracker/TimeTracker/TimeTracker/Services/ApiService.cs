@@ -5,8 +5,10 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Diagnostics;
 using TimeTracker.Dtos.Accounts;
+using TimeTracker.Dtos.Authentications;
 using TimeTracker.Dtos.Authentications.Credentials;
 using TimeTracker.Dtos;
+using TimeTracker.Dtos.Projects;
 
 namespace TimeTracker.Services
 {
@@ -75,7 +77,7 @@ namespace TimeTracker.Services
             return responseBody;
         }
 
-        public async Task<ResponseBody> LoginAsync(string login, string password)
+        public async Task<Response<LoginResponse>> LoginAsync(string login, string password)
         {
 
             var client = new HttpClient();
@@ -100,7 +102,7 @@ namespace TimeTracker.Services
 
             Debug.WriteLine(content);
 
-            ResponseBody responseBody = JsonConvert.DeserializeObject<ResponseBody>(jsonResponse);
+            Response<LoginResponse> responseBody = JsonConvert.DeserializeObject<Response<LoginResponse>>(jsonResponse);
 
             return responseBody;
         }
@@ -163,6 +165,34 @@ namespace TimeTracker.Services
             string responseBody = await response.Content.ReadAsStringAsync();
 
             return JsonConvert.DeserializeObject<Response<UserProfileResponse>>(responseBody);
+        }
+
+        public async Task<Response<ProjectItem>> CreateProjectAsync(string AccessToken, string name, string description)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
+
+            var model = new AddProjectRequest
+            {
+                Name = name,
+                Description = description
+            };
+
+            var json = JsonConvert.SerializeObject(model);
+
+            HttpContent content = new StringContent(json);
+
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(Urls.PROJECT_LIST, content);
+
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+
+            Response<ProjectItem> responseBody = JsonConvert.DeserializeObject<Response<ProjectItem>>(jsonResponse);
+
+            return responseBody;
         }
     }
 }

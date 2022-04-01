@@ -39,6 +39,8 @@ namespace TimeTracker.ViewModels
                     try
                     {
                         var isSuccess = await _apiService.LoginAsync(Login, Password);
+                        ApiUtil.Instance.loginInfo(isSuccess.Data);
+
                         if (isSuccess.IsSuccess)
                         {
                             Message = "Login Success!";

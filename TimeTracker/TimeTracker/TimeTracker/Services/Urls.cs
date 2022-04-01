@@ -9,5 +9,6 @@
         public const string LOGIN = ROOT + "/login";
         public const string USER_PROFIL = ROOT + "/me";
         public const string SET_PASSWORD = ROOT + "/password";
+        public const string PROJECT_LIST = ROOT + "/projects";
     }
 }
