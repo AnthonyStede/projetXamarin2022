@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "ayp+H8iB0lXuPa3VeMjhvJ6BCv4CLTzBLtAsVmbUsPJdrzP0O/QcCj25iPXf5JZ/q8vI3d/M6tUXIXvPWEdPwQ==",
+  "dgSpecHash": "T/0qU717KrrOUsVczUZqrvH63TdSvN3CuTzltqS5/J9/AZAm+MW3pXvMNk7ca5eZ/KmoT6J0hCQrmSyW9u1haw==",
   "success": true,
-  "projectFilePath": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.iOS\\TimeTracker.iOS.csproj",
+  "projectFilePath": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.iOS\\TimeTracker.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ginto\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\mvvmlight\\5.4.1.1\\mvvmlight.5.4.1.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\mvvmlightlibs\\5.4.1.1\\mvvmlightlibs.5.4.1.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\storm.mvvm.forms\\2.5.0\\storm.mvvm.forms.2.5.0.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\stede\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\mvvmlight\\5.4.1.1\\mvvmlight.5.4.1.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\mvvmlightlibs\\5.4.1.1\\mvvmlightlibs.5.4.1.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\storm.mvvm.forms\\2.5.0\\storm.mvvm.forms.2.5.0.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
   "logs": [
     {

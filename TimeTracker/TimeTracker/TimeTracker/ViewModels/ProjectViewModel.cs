@@ -56,7 +56,8 @@ namespace TimeTracker.ViewModels
                     {
                         AccessToken = ApiUtil.Instance.Access_token;
                         var isSuccess = await _apiService.CreateProjectAsync(AccessToken, Name,Description);
-                 
+                        projects.Clear();
+
 
                         if (isSuccess.IsSuccess)
                         {

@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "VTtcoevuSpTnGGMgJ+poRuZUvbD1Fky9U26YkOwQm/AwqxhPAguXU9XXG7p06T3UeJr1DE4OYOxWh1jXaHK4IQ==",
+  "dgSpecHash": "pAfU5loQ+qlI3sfkB60CNZXxiVYJJtwymma8GL/MCk708LeWiNFYIRPzpkEiO2HLdnRITH7U8P4Gyid/73aF8A==",
   "success": true,
-  "projectFilePath": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj",
+  "projectFilePath": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ginto\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\mvvmlight\\5.4.1.1\\mvvmlight.5.4.1.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\mvvmlightlibs\\5.4.1.1\\mvvmlightlibs.5.4.1.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\storm.mvvm.forms\\2.5.0\\storm.mvvm.forms.2.5.0.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Users\\ginto\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
+    "C:\\Users\\stede\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\mvvmlight\\5.4.1.1\\mvvmlight.5.4.1.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\mvvmlightlibs\\5.4.1.1\\mvvmlightlibs.5.4.1.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\storm.mvvm.forms\\2.5.0\\storm.mvvm.forms.2.5.0.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\stede\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
   ],
   "logs": [
     {

@@ -7,7 +7,7 @@
     <ContentPage.BindingContext>
         <vm:ProfilViewModel/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:InverseBoolConverter x:Key="inverter" />
@@ -20,17 +20,17 @@
                  Padding="20">
 
         <Label Text="Your email is: "/>
-        <Entry Text="{Binding Email}" StyleClass="DefaultEntry" Placeholder="Email"/>
+        <Entry StyleClass="DefaultEntry" Placeholder="{Binding Email}"/>
         <Label Text="Your First name is: "/>
-        <Entry Text="{Binding UserFirstName}" Placeholder="First name"/>
+        <Entry Placeholder="{Binding UserFirstName}"/>
         <Label Text="Your Last name is: "/>
-        <Entry Text="{Binding UserLastName}" Placeholder="Last name"/>
+        <Entry Placeholder="{Binding UserLastName}"/>
         <Button Text="Accept" Command="{Binding ChangeInfosCommand}" StyleClass="DefaultButton"/>
         <Button Text="Change password" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible, Converter={StaticResource inverter}}" StyleClass="DefaultButton"/>
         <Button Text="Back" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible}" StyleClass="DefaultButton"/>
-        <Label Text="Old password"/>
+        <Label IsVisible="{Binding Visible}" Text="Old password"/>
         <Entry WidthRequest="300" IsVisible="{Binding Visible}" IsPassword="True" StyleClass="DefaultEntry" Text="{Binding OldPassword}"/>
-        <Label Text="New password"/>
+        <Label IsVisible="{Binding Visible}" Text="New password"/>
         <Entry WidthRequest="300" IsVisible="{Binding Visible}" IsPassword="True" StyleClass="DefaultEntry" Text="{Binding NewPassword}"/>
         <Label Text="{Binding Message}" TextColor="Red"/>
         <Button Text="Confirm password" Command="{Binding ChangePasswordCommand}" IsVisible="{Binding Visible}" StyleClass="DefaultButton"/>

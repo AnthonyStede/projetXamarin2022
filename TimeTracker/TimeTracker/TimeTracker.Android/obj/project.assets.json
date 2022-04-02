@@ -2389,24 +2389,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ginto\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\stede\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\TimeTracker.Android.csproj",
+      "projectUniqueName": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\TimeTracker.Android.csproj",
       "projectName": "TimeTracker.Android",
-      "projectPath": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\TimeTracker.Android.csproj",
-      "packagesPath": "C:\\Users\\ginto\\.nuget\\packages\\",
-      "outputPath": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\obj\\",
+      "projectPath": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\TimeTracker.Android.csproj",
+      "packagesPath": "C:\\Users\\stede\\.nuget\\packages\\",
+      "outputPath": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ginto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stede\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2420,8 +2420,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj": {
-              "projectPath": "D:\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj"
+            "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj": {
+              "projectPath": "C:\\Xamarin\\projetXamarin2022\\TimeTracker\\TimeTracker\\TimeTracker\\TimeTracker.csproj"
             }
           }
         }

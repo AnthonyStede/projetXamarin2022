@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using Storm.Mvvm.Services;
 using TimeTracker.Pages;
 using TimeTracker.Services;
 using TimeTracker.ThrowException;
@@ -11,7 +13,7 @@ using Xamarin.Forms;
 
 namespace TimeTracker.ViewModels
 {
-    class ProfilViewModel
+    class ProfilViewModel : ViewModelBase
     {
 
         private ApiService _apiService = new ApiService();
@@ -25,45 +27,38 @@ namespace TimeTracker.ViewModels
         public string AccessToken { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ProfilViewModel()
+        {
+
+        }
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             var eventHandler = PropertyChanged;
             eventHandler?.Invoke(this, e);
 
         }
-        public ICommand UserProfilCommand
+        public async void UserProfilCommand()
         {
-            get
+            var accessToken = AccessToken;
+            try
             {
-                return new Command(async () =>
+                var isSuccess = await _apiService.UserProfilAsync(accessToken);
+                if (isSuccess.IsSuccess)
                 {
-                    var accessToken = AccessToken;
-
-
-                    try
-                    {
-                        var isSuccess = await _apiService.UserProfilAsync(accessToken);
-                        if (isSuccess.IsSuccess)
-                        {
-                            Email = isSuccess.Data.Email;
-                            UserFirstName = isSuccess.Data.FirstName;
-                            UserLastName = isSuccess.Data.LastName;
-                            await Application.Current.MainPage.Navigation.PushAsync(new ProfilPage());
-                        }
-                        else
-                        {
-                            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
-                        }
-                    }
-                    catch (WrongAccessTokenException e)
-                    {
-                        Console.WriteLine(e);
-                    }
-
-                });
-
+                    Email = isSuccess.Data.Email;
+                    UserFirstName = isSuccess.Data.FirstName;
+                    UserLastName = isSuccess.Data.LastName;
+                }
+                else
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                }
             }
-
+            catch (WrongAccessTokenException e)
+            {
+                Console.WriteLine(e);
+            }
         }
         public ICommand ChangeInfosCommand
         {
@@ -74,6 +69,7 @@ namespace TimeTracker.ViewModels
                     try
                     {
                         await _apiService.ChangeProfilAsync(AccessToken, Email, UserFirstName, UserLastName);
+                        Back();
                         await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
                     }
                     catch (WrongAccessTokenException e)
@@ -93,6 +89,7 @@ namespace TimeTracker.ViewModels
                     try
                     {
                         await _apiService.ChangePasswordAsync(AccessToken, OldPassword, NewPassword);
+                        Back();
                         await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
                     }
                     catch (WrongOldPasswordException e)
@@ -110,12 +107,24 @@ namespace TimeTracker.ViewModels
             get
             {
                 return new Command(Visibilite);
-                    
+
             }
         }
         public void Visibilite()
         {
             Visible = !Visible;
+        }
+        public async void Back()
+        {
+            try
+            {
+                NavigationService Navserv = new NavigationService();
+                await Navserv.PopAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }

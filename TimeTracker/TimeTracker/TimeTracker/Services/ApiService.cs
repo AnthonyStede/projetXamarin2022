@@ -135,11 +135,17 @@ namespace TimeTracker.Services
                 FirstName = userFirstName,
                 LastName = userLastName
             };
-
             var json = JsonConvert.SerializeObject(ProfilModel);
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await client.PostAsync(Urls.USER_PROFIL, content); // à changer par des patch
+            var method = "PATCH";
+            var httpVerb = new HttpMethod(method);
+            var httpRequestMessage =
+                new HttpRequestMessage(httpVerb, Urls.USER_PROFIL)
+                {
+                    Content = content
+                };
+            var response = await client.SendAsync(httpRequestMessage);
 
             string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -157,11 +163,17 @@ namespace TimeTracker.Services
                 OldPassword = oldPassword,
                 NewPassword = newPassword,
             };
-
             var json = JsonConvert.SerializeObject(ProfilModel);
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await client.PostAsync(Urls.SET_PASSWORD, content); // à changer par des patch
+            var method = "PATCH";
+            var httpVerb = new HttpMethod(method);
+            var httpRequestMessage =
+                new HttpRequestMessage(httpVerb, Urls.SET_PASSWORD)
+                {
+                    Content = content
+                };
+            var response = await client.SendAsync(httpRequestMessage);
 
             string responseBody = await response.Content.ReadAsStringAsync();
 
