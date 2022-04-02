@@ -598,6 +598,8 @@ C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Deb
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\lp\77\jl\files.cache
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\lp\80\jl\files.cache
 C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\lp\88\jl\files.cache
+D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.RecyclerView.dll
+D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Xaml.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\bin\Debug\TimeTracker.Android.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\bin\Debug\TimeTracker.Android.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\bin\Debug\com.companyname.timetracker.apk
@@ -792,7 +794,6 @@ D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\a
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.MultiDex.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.Print.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.Print.pdb
-D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.RecyclerView.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.RecyclerView.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.SavedState.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.AndroidX.SavedState.pdb
@@ -819,7 +820,6 @@ D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\a
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Platform.Android.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Platform.Android.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Platform.dll
-D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Xaml.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Forms.Xaml.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Google.Android.Material.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker.Android\obj\Debug\110\android\assets\Xamarin.Google.Android.Material.pdb

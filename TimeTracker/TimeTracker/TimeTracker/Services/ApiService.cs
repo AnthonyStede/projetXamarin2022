@@ -9,6 +9,7 @@ using TimeTracker.Dtos.Authentications;
 using TimeTracker.Dtos.Authentications.Credentials;
 using TimeTracker.Dtos;
 using TimeTracker.Dtos.Projects;
+using System.Collections.Generic;
 
 namespace TimeTracker.Services
 {
@@ -171,7 +172,6 @@ namespace TimeTracker.Services
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(Urls.API);
-
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
 
             var model = new AddProjectRequest
@@ -191,6 +191,20 @@ namespace TimeTracker.Services
             string jsonResponse = await response.Content.ReadAsStringAsync();
 
             Response<ProjectItem> responseBody = JsonConvert.DeserializeObject<Response<ProjectItem>>(jsonResponse);
+
+            return responseBody;
+        }
+
+        public async Task<Response<List<ProjectItem>>> ProjetsAsync(string access_token)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + access_token);
+
+            HttpResponseMessage response = await client.GetAsync(Urls.PROJECT_LIST);
+
+            var result = await response.Content.ReadAsStringAsync();
+            Response<List<ProjectItem>> responseBody = JsonConvert.DeserializeObject<Response<List<ProjectItem>>>(result);
 
             return responseBody;
         }

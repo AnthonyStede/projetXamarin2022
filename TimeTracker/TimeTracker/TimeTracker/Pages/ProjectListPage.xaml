@@ -12,19 +12,45 @@
                  VerticalOptions="End"
                  Spacing="20"
                  Padding="20">
+        
+        <Label Text="Projets" StyleClass="LabelDefaultXl"/>
+        <ListView x:Name="projectListView"
+                      StyleClass="ListViewStyle"
+                      ItemsSource="{Binding projects}"
+                      CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" TextColor="#f35e20" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout>
+                    <Entry Text="{Binding Name}"
+                           Placeholder="Input Project name"/>
+                    <Entry Text="{Binding Description}"
+                           Placeholder="Input Projet Description"/>
 
-        <Entry Text="{Binding Name}"
-               Placeholder="Input Project name"/>
-        <Entry Text="{Binding Description}"
-               Placeholder="Input Projet Description"
-               IsPassword="True"/>
-
-        <Button Command="{Binding CreateProjectCommand}"
+                    <Button Command="{Binding CreateProjectCommand}"
                 Text="Create!"
                 TextColor="White"
                 FontSize="15"
                 BackgroundColor="DeepSkyBlue"              
                />
-        <Label Text="{Binding Message}" TextColor="Red"/>
+                    <Label Text="{Binding Message}" TextColor="Red"/>
+
+                    <BoxView HorizontalOptions="CenterAndExpand" HeightRequest="100"></BoxView>
+                </StackLayout>
+
+            </ListView.Footer>
+        </ListView>
+
+       
     </StackLayout>
 </ContentPage>
