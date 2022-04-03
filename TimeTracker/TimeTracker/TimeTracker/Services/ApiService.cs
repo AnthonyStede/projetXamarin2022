@@ -185,7 +185,6 @@ namespace TimeTracker.Services
             var client = new HttpClient();
             client.BaseAddress = new Uri(Urls.API);
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
-
             var model = new AddProjectRequest
             {
                 Name = name,
@@ -217,6 +216,45 @@ namespace TimeTracker.Services
 
             var result = await response.Content.ReadAsStringAsync();
             Response<List<ProjectItem>> responseBody = JsonConvert.DeserializeObject<Response<List<ProjectItem>>>(result);
+
+            return responseBody;
+        }
+        public async Task<Response<TaskItem>> CreateTaskAsync(string AccessToken, string name, long projectId)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + AccessToken);
+
+            var model = new AddTaskRequest
+            {
+                Name = name,
+            };
+
+            var json = JsonConvert.SerializeObject(model);
+
+            HttpContent content = new StringContent(json);
+
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(Urls.PROJECT_LIST + projectId + Urls.TASK, content);
+
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+
+            Response<TaskItem> responseBody = JsonConvert.DeserializeObject<Response<TaskItem>>(jsonResponse);
+
+            return responseBody;
+        }
+
+        public async Task<Response<List<TaskItem>>> TasksAsync(string access_token, long projectId)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(Urls.API);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + access_token);
+
+            HttpResponseMessage response = await client.GetAsync(Urls.PROJECT_LIST + projectId + Urls.TASK);
+
+            var result = await response.Content.ReadAsStringAsync();
+            Response<List<TaskItem>> responseBody = JsonConvert.DeserializeObject<Response<List<TaskItem>>>(result);
 
             return responseBody;
         }

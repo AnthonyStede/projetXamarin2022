@@ -23,6 +23,7 @@ namespace TimeTracker.ViewModels
         public string Description { get; set; }
         public string Message { get; set; }
         public string AccessToken { get; set; }
+        public long Id { get; set; }
 
         private ObservableCollection<Project> proJects;
 

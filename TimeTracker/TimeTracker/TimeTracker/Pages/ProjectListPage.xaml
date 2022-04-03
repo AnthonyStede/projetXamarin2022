@@ -25,6 +25,8 @@
                         Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Name}" TextColor="#f35e20" />
+                                <Button Text="Display" HorizontalOptions="EndAndExpand" Grid.Column="1"
+                                        Clicked="CheckProjet"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

@@ -35,3 +35,4 @@ D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\ref\TimeTracker.dll
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\TimeTracker.pdb
 D:\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\TimeTracker.csprojAssemblyReference.cache
+C:\Xamarin\projetXamarin2022\TimeTracker\TimeTracker\TimeTracker\obj\Debug\netstandard2.0\Pages\TaskListPage.xaml.g.cs

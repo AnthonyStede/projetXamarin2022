@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TimeTracker.ViewModels" 
+             xmlns:tasks="clr-namespace:TimeTracker.Dtos.Projects"
+             x:Class="TimeTracker.Pages.TaskListPage">
+    <ContentPage.BindingContext>
+        <vm:TaskViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView HasUnevenRows="True" ItemsSource="{Binding Tasks} "
+                  SelectionMode="None"
+                  BackgroundColor="White"
+                  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:DataType="tasks:TaskItem">
+                            <StackLayout Orientation="Vertical">
+                                <Label Padding="5,0,0,0" Text="{Binding Name}" Font="15" TextColor="Black"
+                                    />
+                                <Grid Margin ="0,0,0,20" Grid.Column="0" Padding="5,0,0,0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Times}" HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="0"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <StackLayout>
+                        <Entry Text="{Binding Name}"
+                           Placeholder="Input Task name"/>
+                        <Entry Text="{Binding Times}"
+                           Placeholder="Input Task timer"/>
+                        <Button Command="{Binding CreateTaskCommand}"
+                Text="Create!"
+                TextColor="White"
+                FontSize="15"
+                BackgroundColor="DeepSkyBlue"              
+               />
+                        <Label Text="{Binding Message}" TextColor="Red"/>
+                        <BoxView HorizontalOptions="CenterAndExpand" HeightRequest="100"></BoxView>
+                    </StackLayout>
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

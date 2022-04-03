@@ -24,13 +24,12 @@ namespace TimeTracker.ViewModels
         public string NewPassword { get; set; }
         public bool Visible { get; set; }
         public string Message { get; set; }
-        public string AccessToken { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ProfilViewModel()
         {
-
+            GetUserProfil();
         }
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
@@ -38,12 +37,11 @@ namespace TimeTracker.ViewModels
             eventHandler?.Invoke(this, e);
 
         }
-        public async void UserProfilCommand()
+        public async void GetUserProfil()
         {
-            var accessToken = AccessToken;
             try
             {
-                var isSuccess = await _apiService.UserProfilAsync(accessToken);
+                var isSuccess = await _apiService.UserProfilAsync(ApiUtil.Instance.Access_token);
                 if (isSuccess.IsSuccess)
                 {
                     Email = isSuccess.Data.Email;
@@ -68,7 +66,7 @@ namespace TimeTracker.ViewModels
                 {
                     try
                     {
-                        await _apiService.ChangeProfilAsync(AccessToken, Email, UserFirstName, UserLastName);
+                        await _apiService.ChangeProfilAsync(ApiUtil.Instance.Access_token, Email, UserFirstName, UserLastName);
                         Back();
                         await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
                     }
@@ -88,7 +86,7 @@ namespace TimeTracker.ViewModels
                 {
                     try
                     {
-                        await _apiService.ChangePasswordAsync(AccessToken, OldPassword, NewPassword);
+                        await _apiService.ChangePasswordAsync(ApiUtil.Instance.Access_token, OldPassword, NewPassword);
                         Back();
                         await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
                     }
@@ -113,6 +111,7 @@ namespace TimeTracker.ViewModels
         public void Visibilite()
         {
             Visible = !Visible;
+            OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
         }
         public async void Back()
         {
@@ -123,7 +122,7 @@ namespace TimeTracker.ViewModels
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
             }
         }
     }

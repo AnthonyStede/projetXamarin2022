@@ -13,7 +13,7 @@ namespace TimeTracker.Dtos.Util
         private string name;
         private string description;
         public readonly ProjectViewModel ProjectViewModel;
-        public long projectId;
+        private long projectId;
  
         public string Name
         {
@@ -24,6 +24,11 @@ namespace TimeTracker.Dtos.Util
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+        public long Id
+        {
+            get => projectId;
+            set => SetProperty(ref projectId, value);
         }
 
         public ICommand DeleteCommand { get; }
@@ -40,7 +45,7 @@ namespace TimeTracker.Dtos.Util
         {
             Name = name;
             ProjectViewModel = projectViewModel;
-            this.projectId = projectId;
+            Id = projectId;
         }
 
     }
