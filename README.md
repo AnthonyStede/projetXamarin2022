@@ -1,8 +1,8 @@
 # projetXamarin2022
 Collaborateurs : 
-  ZHANG Ling
-  STEDE-SCHRADER Anthony
-  (DESCAMPS Clément) -> N'as pas travaillé sur le projet
+  - ZHANG Ling
+  - STEDE-SCHRADER Anthony
+  - (DESCAMPS Clément) -> N'as pas travaillé sur le projet
   
 Travail réalisé : 
   - Création de compte
