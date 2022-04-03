@@ -20,11 +20,11 @@
                  Padding="20">
 
         <Label Text="Your email is: "/>
-        <Entry StyleClass="DefaultEntry" Placeholder="{Binding Email}"/>
+        <Entry StyleClass="DefaultEntry" Text="{Binding Email}"/>
         <Label Text="Your First name is: "/>
-        <Entry Placeholder="{Binding UserFirstName}"/>
+        <Entry Text="{Binding UserFirstName}"/>
         <Label Text="Your Last name is: "/>
-        <Entry Placeholder="{Binding UserLastName}"/>
+        <Entry Text="{Binding UserLastName}"/>
         <Button Text="Accept" Command="{Binding ChangeInfosCommand}" StyleClass="DefaultButton"/>
         <Button Text="Change password" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible, Converter={StaticResource inverter}}" StyleClass="DefaultButton"/>
         <Button Text="Back" Command="{Binding ChangePasswordDisplay}" IsVisible="{Binding Visible}" StyleClass="DefaultButton"/>

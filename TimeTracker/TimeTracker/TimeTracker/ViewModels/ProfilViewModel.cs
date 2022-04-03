@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace TimeTracker.ViewModels
 {
-    class ProfilViewModel : ViewModelBase
+    class ProfilViewModel : ViewModelBase, INotifyPropertyChanged
     {
 
         private ApiService _apiService = new ApiService();
@@ -47,6 +47,7 @@ namespace TimeTracker.ViewModels
                     Email = isSuccess.Data.Email;
                     UserFirstName = isSuccess.Data.FirstName;
                     UserLastName = isSuccess.Data.LastName;
+                    OnPropertyChanged(new PropertyChangedEventArgs(nameof(Message)));
                 }
                 else
                 {
